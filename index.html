@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px solid #28a745;
+      background-color: #e6ffe6;
+      color: #28a745;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
 
@@ -22,9 +35,11 @@
   <section class="about">
     <div class="container">
       <h2>About the Event</h2>
-      <p>Join us for TechFest 2025, the ultimate college event where technology meets creativity. Explore innovations, attend workshops, and connect with industry leaders.</p>
+      <p>Join us for TechFest 2025, the ultimate college event where technology meets creativity. Explore innovations,
+        attend workshops, and connect with industry leaders.</p>
       <p><strong>Date:</strong> October 5, 2025<br>
-      <strong>Location:</strong> ABC College Campus Auditorium</p>
+        <strong>Location:</strong> ABC College Campus Auditorium
+      </p>
     </div>
   </section>
 
@@ -62,28 +77,29 @@
   </section>
 
   <!-- Registration Section -->
- <!-- Registration Section -->
-<section class="register">
-  <div class="container">
-    <h2>Register Now</h2>
-   <form action="https://formspree.io/f/mvgryykp" method="POST">
-  <input type="hidden" name="_redirect" value="https://karthi2006-46.github.io/Event/thankyou.html">
-  <input type="text" name="name" placeholder="Full Name" required />
-  <input type="email" name="email" placeholder="Email" required />
-  <input type="text" name="department" placeholder="Department" required />
-  <select name="year" required>
-    <option value="">Select Year</option>
-    <option>1st Year</option>
-    <option>2nd Year</option>
-    <option>3rd Year</option>
-    <option>4th Year</option>
-  </select>
-  <button type="submit">Submit</button>
-</form>
+  <section class="register">
+    <div class="container">
+      <h2>Register Now</h2>
+      <form id="registration-form">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="department" placeholder="Department" required />
+        <select name="year" required>
+          <option value="">Select Year</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
 
-  </div>
-</section>
-
+      <!-- Thank You Message -->
+      <div class="thank-you-message" id="thank-you-message">
+        ✅ Thank you for registering! We’ll contact you with event details soon.
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <footer class="contact">
@@ -91,13 +107,40 @@
       <h2>Contact Us</h2>
       <p>Email: techfest@college.edu | Phone: +91-9876543210</p>
       <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/karthi_46x/?next=%2F"><i class="fab fa-instagram"></i>Instagram     </a>
+        <a href="https://www.linkedin.com/in/karthi-keyan-5349a028a/"><i class="fab fa-facebook-f"></i> Linkedin   </a>
+        <a href="https://x.com/karthi_46x"><i class="fab fa-twitter"></i>Twitter</a>
       </div>
       <p class="copyright">© 2025 ABC College</p>
     </div>
   </footer>
+
+  <!-- JS to handle form submission and show message -->
+  <script>
+    document.getElementById("registration-form").addEventListener("submit", function (e) {
+      e.preventDefault(); // prevent default form behavior
+
+      // optionally, you can send data to Formspree
+      fetch("https://formspree.io/f/mvgryykp", {
+        method: "POST",
+        body: new FormData(this),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          this.reset();
+          document.getElementById("thank-you-message").style.display = "block";
+        } else {
+          alert("Oops! Something went wrong. Please try again later.");
+        }
+      })
+      .catch(() => {
+        alert("Oops! Unable to connect. Check your internet or try again.");
+      });
+    });
+  </script>
 
 </body>
 </html>
