@@ -13,8 +13,8 @@
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
-      <h1>TechFest 2025</h1>
-      <p>Innovation. Inspiration. Integration.</p>
+      <h1 class="firsthead">TechFest 2025</h1>
+      <p class="firstpara">Innovation. Inspiration. Integration.</p>
     </div>
   </header>
 
@@ -62,24 +62,28 @@
   </section>
 
   <!-- Registration Section -->
-  <section class="register">
-    <div class="container">
-      <h2>Register Now</h2>
-      <form>
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="text" placeholder="Department" required />
-        <select required>
-          <option value="">Select Year</option>
-          <option>1st Year</option>
-          <option>2nd Year</option>
-          <option>3rd Year</option>
-          <option>4th Year</option>
-        </select>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </section>
+ <!-- Registration Section -->
+<section class="register">
+  <div class="container">
+    <h2>Register Now</h2>
+   <form action="https://formspree.io/f/mvgryykp" method="POST">
+  <input type="hidden" name="_redirect" value="https://karthi2006-46.github.io/Event/thankyou.html">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="text" name="department" placeholder="Department" required />
+  <select name="year" required>
+    <option value="">Select Year</option>
+    <option>1st Year</option>
+    <option>2nd Year</option>
+    <option>3rd Year</option>
+    <option>4th Year</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+
+  </div>
+</section>
+
 
   <!-- Contact Section -->
   <footer class="contact">
